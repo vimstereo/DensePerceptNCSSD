@@ -9,7 +9,6 @@ from corr import CorrBlock, AlternateCorrBlock
 from utils.utils import bilinear_sampler, coords_grid, upflow8
 
 from core_flow.vssd import Backbone_VMAMBA2
-from core_flow.nvim import MambaVision
 
 
 try:
@@ -27,7 +26,7 @@ except:
 
 class DPNCSSD(nn.Module):
     def __init__(self, args):
-        super(RAFT, self).__init__()
+        super(DPNCSSD, self).__init__()
         self.args = args
         self.vssd=Backbone_VMAMBA2(bidirection=True)
         self.conv = nn.Conv2d(256, 256, kernel_size=3, stride=2, padding=1)
